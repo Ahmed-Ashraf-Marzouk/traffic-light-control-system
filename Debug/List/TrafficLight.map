@@ -1,0 +1,321 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.2.313/W64 for ARM                  13/Jan/2022  21:15:39
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =
+#        G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Exe\TrafficLight.out
+#    Map file     =
+#        G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\List\TrafficLight.map
+#    Command line =
+#        -f "G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Exe\TrafficLight.out.rsp"
+#        ("G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj\DIO.o"
+#        "G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj\main.o"
+#        "G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj\Traffic_light.o"
+#        --no_out_extension -o "G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Exe\TrafficLight.out"
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map "G:\Semester
+#        7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\List\TrafficLight.map"
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ewarm\Exe\driverlib.a
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** MESSAGES
+***
+
+Warning[Lt009]: Inconsistent wchar_t size
+            sysctl.o(driverlib.a) and 3 other objects in driverlib.a have
+                      wchar_t size 16 bits
+            DIO.o and 15 other objects, some of them in dl7M_tln.a and 11 other
+                      libraries have wchar_t size 32 bits
+
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            ro code          0x0    0x40  vector_table_M.o [5]
+                                   - 0x40    0x40
+
+"P1":                                       0xf60
+  .text              ro code         0x40   0x850  Traffic_light.o [1]
+  .text              ro code        0x890    0xb0  interrupt.o [3]
+  .text              ro code        0x940   0x3fc  gpio.o [3]
+  .text              ro code        0xd3c    0x48  sysctl.o [3]
+  .text              ro code        0xd84     0xc  cpu.o [3]
+  .rodata            const          0xd90    0x60  Traffic_light.o [1]
+  .rodata            const          0xdf0    0x40  Traffic_light.o [1]
+  .text              ro code        0xe30    0x38  zero_init3.o [5]
+  .text              ro code        0xe68    0x2a  main.o [1]
+  .text              ro code        0xe92    0x2a  copy_init3.o [5]
+  .text              ro code        0xebc    0x28  data_init.o [5]
+  .text              ro code        0xee4    0x22  fpinit_M.o [4]
+  .iar.init_table    const          0xf08    0x24  - Linker created -
+  .text              ro code        0xf2c     0x2  vectortrap_M.o [5]
+  .text              ro code        0xf30    0x1e  cmain.o [5]
+  .text              ro code        0xf4e     0x4  low_level_init.o [2]
+  .text              ro code        0xf52     0x4  exit.o [2]
+  .text              ro code        0xf58     0xa  cexit.o [5]
+  .text              ro code        0xf64    0x14  exit.o [6]
+  .text              ro code        0xf78    0x1c  cstartup_M.o [5]
+  .rodata            const          0xf94     0x4  Traffic_light.o [1]
+  .rodata            const          0xf98     0x4  Traffic_light.o [1]
+  Initializer bytes  const          0xf9c     0x4  <for P2-1>
+  .rodata            const          0xfa0     0x0  zero_init3.o [5]
+  .rodata            const          0xfa0     0x0  copy_init3.o [5]
+                                  - 0xfa0   0xf60
+
+"P2", part 1 of 3:                            0x4
+  P2-1                        0x2000'0000     0x4  <Init block>
+    .data            inited   0x2000'0000     0x4  main.o [1]
+                            - 0x2000'0004     0x4
+
+"P2", part 2 of 3:                          0x674
+  VTABLE             zero     0x2000'0400   0x26c  interrupt.o [3]
+  .bss               zero     0x2000'066c     0x4  main.o [1]
+  .bss               zero     0x2000'0670     0x4  main.o [1]
+  .bss               zero     0x2000'0674     0x4  main.o [1]
+                            - 0x2000'0678   0x674
+
+"P2", part 3 of 3:                         0x1000
+  CSTACK                      0x2000'0678  0x1000  <Block>
+    CSTACK           uninit   0x2000'0678  0x1000  <Block tail>
+                            - 0x2000'1678  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0xfa0     0x3'ffff  0x3'f060
+  0x2000'1678  0x2000'7fff    0x6988
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x278:
+          0x2000'0400  0x278
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x4:
+                0xf9c    0x4
+    1 destination range, total size 0x4:
+          0x2000'0000    0x4
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+G:\Semester 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj: [1]
+    Traffic_light.o     2'128      168
+    main.o                 42        4       16
+    -------------------------------------------
+    Total:              2'170      172       16
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+driverlib.a: [3]
+    cpu.o                  12
+    gpio.o              1'020
+    interrupt.o           176               620
+    sysctl.o               72
+    -------------------------------------------
+    Total:              1'280               620
+
+m7M_tls.a: [4]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [5]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           42
+    cstartup_M.o           28
+    data_init.o            40
+    vector_table_M.o       64
+    vectortrap_M.o          2
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                272
+
+shb_l.a: [6]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    6        2    1'020
+    Linker created                  36    4'096
+-----------------------------------------------
+    Grand Total:        3'790      210    5'752
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xf08          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xf2c          --   Gb  - Linker created -
+?main                         0xf31         Code  Gb  cmain.o [5]
+BusFault_Handler              0xf2d         Code  Wk  vectortrap_M.o [5]
+CPUcpsie                      0xd85    0x8  Code  Gb  cpu.o [3]
+CPUwfi                        0xd8d    0x4  Code  Gb  cpu.o [3]
+CSTACK$$Base            0x2000'0678          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1678          --   Gb  - Linker created -
+DebugMon_Handler              0xf2d         Code  Wk  vectortrap_M.o [5]
+Delay                         0x78d    0xe  Code  Gb  Traffic_light.o [1]
+GPIODirModeSet                0x981   0x28  Code  Gb  gpio.o [3]
+GPIOIntClear                  0xb23    0x6  Code  Gb  gpio.o [3]
+GPIOIntEnable                 0xb1d    0x6  Code  Gb  gpio.o [3]
+GPIOIntRegister               0xb29   0x14  Code  Gb  gpio.o [3]
+GPIOPadConfigSet              0x9a9  0x174  Code  Gb  gpio.o [3]
+GPIOPinRead                   0xb45    0x6  Code  Gb  gpio.o [3]
+GPIOPinTypeGPIOInput          0xb55   0x14  Code  Gb  gpio.o [3]
+GPIOPinTypeGPIOOutput         0xb69    0xa  Code  Gb  gpio.o [3]
+GPIOPinWrite                  0xb4b    0x6  Code  Gb  gpio.o [3]
+HardFault_Handler             0xf2d         Code  Wk  vectortrap_M.o [5]
+IntEnable                     0x8c7   0x56  Code  Gb  interrupt.o [3]
+IntMasterEnable               0x891    0x8  Code  Gb  interrupt.o [3]
+IntRegister                   0x8a1   0x26  Code  Gb  interrupt.o [3]
+MemManage_Handler             0xf2d         Code  Wk  vectortrap_M.o [5]
+NMI_Handler                   0xf2d         Code  Wk  vectortrap_M.o [5]
+PORTA_init                    0x523   0x4a  Code  Gb  Traffic_light.o [1]
+PORTC_init                    0x56d   0x3a  Code  Gb  Traffic_light.o [1]
+PORTD_init                    0x5a7   0x5e  Code  Gb  Traffic_light.o [1]
+PORTE_init                    0x605   0x3a  Code  Gb  Traffic_light.o [1]
+PORTF_init                    0x63f   0x5e  Code  Gb  Traffic_light.o [1]
+PendSV_Handler                0xf2d         Code  Wk  vectortrap_M.o [5]
+Region$$Table$$Base           0xf08          --   Gb  - Linker created -
+Region$$Table$$Limit          0xf2c          --   Gb  - Linker created -
+SVC_Handler                   0xf2d         Code  Wk  vectortrap_M.o [5]
+SysCtlPeripheralEnable        0xd5d    0x8  Code  Gb  sysctl.o [3]
+SysCtlPeripheralReady         0xd3d    0x8  Code  Gb  sysctl.o [3]
+SysCtlSleep                   0xd79    0x4  Code  Gb  sysctl.o [3]
+SysTick_Handler               0xf2d         Code  Wk  vectortrap_M.o [5]
+Ticks_to_time                 0x785    0x8  Code  Gb  Traffic_light.o [1]
+Timer0_dsiable                0x735    0xe  Code  Gb  Traffic_light.o [1]
+Timer0_handler                0x185  0x162  Code  Gb  Traffic_light.o [1]
+Timer0_init                   0x43b   0x74  Code  Gb  Traffic_light.o [1]
+Timer1_disable                0x743    0xe  Code  Gb  Traffic_light.o [1]
+Timer1_handler                0x2e7  0x154  Code  Gb  Traffic_light.o [1]
+Timer1_init                   0x4af   0x74  Code  Gb  Traffic_light.o [1]
+TimerConfigure                 0xbd   0x74  Code  Gb  Traffic_light.o [1]
+TimerDisable                   0xa7   0x16  Code  Gb  Traffic_light.o [1]
+TimerEnable                    0x93   0x14  Code  Gb  Traffic_light.o [1]
+TimerIntClear                 0x17f    0x6  Code  Gb  Traffic_light.o [1]
+TimerIntEnable                0x171    0xe  Code  Gb  Traffic_light.o [1]
+TimerIntRegister              0x157   0x1a  Code  Gb  Traffic_light.o [1]
+TimerLoadSet                  0x131   0x16  Code  Gb  Traffic_light.o [1]
+TimerValueGet                 0x147   0x10  Code  Gb  Traffic_light.o [1]
+Traffic_light_init            0x751   0x34  Code  Gb  Traffic_light.o [1]
+UsageFault_Handler            0xf2d         Code  Wk  vectortrap_M.o [5]
+_GPIOIntNumberGet             0x941   0x40  Code  Lc  gpio.o [3]
+_TimerIntNumberGet             0x41   0x52  Code  Lc  Traffic_light.o [1]
+__cmain                       0xf31         Code  Gb  cmain.o [5]
+__exit                        0xf65   0x14  Code  Gb  exit.o [6]
+__iar_copy_init3              0xe93   0x2a  Code  Gb  copy_init3.o [5]
+__iar_data_init3              0xebd   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp                0xee5         Code  Gb  fpinit_M.o [4]
+__iar_program_start           0xf79         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3              0xe31   0x38  Code  Gb  zero_init3.o [5]
+__low_level_init              0xf4f    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  vector_table_M.o [5]
+_call_main                    0xf3d         Code  Gb  cmain.o [5]
+_exit                         0xf59         Code  Gb  cexit.o [5]
+elapsed_time_1          0x2000'0670    0x4  Data  Gb  main.o [1]
+elapsed_time_2          0x2000'0674    0x4  Data  Gb  main.o [1]
+exit                          0xf53    0x4  Code  Gb  exit.o [2]
+g_pfnRAMVectors         0x2000'0400  0x26c  Data  Lc  interrupt.o [3]
+g_ppui32GPIOIntMapBlizzard
+                              0xba4   0xc0  Data  Lc  gpio.o [3]
+g_ppui32GPIOIntMapSnowflake
+                              0xc64   0xd8  Data  Lc  gpio.o [3]
+g_ppui32TimerIntMap           0xd90   0x60  Data  Lc  Traffic_light.o [1]
+g_ppui32TimerIntMapSnowflake
+                              0xdf0   0x40  Data  Lc  Traffic_light.o [1]
+g_pui32EnRegs                 0x92c   0x14  Data  Lc  interrupt.o [3]
+g_ui8TimerIntMapRows          0xf94    0x4  Data  Lc  Traffic_light.o [1]
+g_ui8TimerIntMapRowsSnowflake
+                              0xf98    0x4  Data  Lc  Traffic_light.o [1]
+main                          0xe69   0x2a  Code  Gb  main.o [1]
+next_state              0x2000'066c    0x4  Data  Gb  main.o [1]
+next_state_2            0x2000'0000    0x4  Data  Gb  main.o [1]
+priority_config               0x733    0x2  Code  Gb  Traffic_light.o [1]
+reset_traffic_1               0x79b   0x2c  Code  Gb  Traffic_light.o [1]
+reset_traffic_2               0x7c7   0x26  Code  Gb  Traffic_light.o [1]
+switch1_handler               0x6ff   0x1a  Code  Gb  Traffic_light.o [1]
+switch2_handler               0x719   0x1a  Code  Gb  Traffic_light.o [1]
+switch_handler                0x69d   0x62  Code  Gb  Traffic_light.o [1]
+
+
+[1] = G:\Semester 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj
+[2] = dl7M_tln.a
+[3] = driverlib.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  3'790 bytes of readonly  code memory
+    210 bytes of readonly  data memory
+  5'752 bytes of readwrite data memory
+
+Errors: none
+Warnings: 1

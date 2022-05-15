@@ -1,0 +1,61 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\DIO.C" -xcl_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.xcl" -macro_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\DIO.C" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.tmp"
+  rspfile_name = G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.xcl.rsp
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\main.c" -xcl_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.xcl" -macro_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\main.c" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.tmp"
+  rspfile_name = G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.xcl.rsp
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.xcl : COMPILER_XCL 
+  xclcommand = -source_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Traffic_light.C" -xcl_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.xcl" -macro_file "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Traffic_light.C" -D ewarm -D PART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.tmp"
+  rspfile_name = G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.xcl.rsp
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.pbi : INDEXER G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.xcl |  $
+G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\DIO.C
+  flags = "-out=G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.pbi" -f "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.xcl"
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.pbi : INDEXER G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.xcl |  $
+G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\main.c
+  flags = "-out=G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.pbi" -f "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.xcl"
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.pbi : INDEXER G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.xcl |  $
+G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Traffic_light.C
+  flags = "-out=G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.pbi" -f "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.xcl"
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\TrafficLight.pbw : MAKEBROWSE G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\TrafficLight.pbd
+  flags = "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\TrafficLight.pbd" -output "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\TrafficLight.pbw"
+
+build G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\TrafficLight.pbd : PDBLINK G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.pbi |  $
+G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.pbi $
+G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.pbi
+  flags = -M "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\TrafficLight.pbd" "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\DIO.pbi" "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\main.pbi" "G$:\Semester$ 7\Embedded\FinalProject\CESS_Team4_Trafficlight\Debug\BrowseInfo\Traffic_light.pbi"
+
